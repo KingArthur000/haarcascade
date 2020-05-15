@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 import os
 
-os.chdir("/home/sathya-prakash/Desktop/gitrepo/harr_cascade")
+#os.chdir("/home/sathya-prakash/Desktop/gitrepo/Harr_Cascade")
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-faces_cascade = cv2.CascadeClassifier('haarcascade_face_1.xml')
-Faces_cascade = cv2.CascadeClassifier('haarcascade_profile_face.xml')
-eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-eye_glasses = cv2.CascadeClassifier('haarcascade_frontalface_glasses.xml')
+#face_cascade = cv2.CascadeClassifier('haarcascade_face_1.xml')
+#face_cascade = cv2.CascadeClassifier('haarcascade_profile_face.xml')
+#eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+eye_cascade = cv2.CascadeClassifier('haarcascade_frontalface_glasses.xml')
 
 cap = cv2.VideoCapture(0)
 
@@ -16,19 +16,18 @@ while True:
     ret,img = cap.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    faces = Faces_cascade.detectMultiScale(gray, 1.3, 5)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     for (x,y,w,h) in faces:
         img = cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = img[y:y+h, x:x+w]
-        eyes = eye_glasses.detectMultiScale(roi_color)
+        eyes = eye_cascade.detectMultiScale(roi_gray)
         no = 0 
         for (ex,ey,ew,eh) in eyes:
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
             no = no + 1
             if no == 2:
                 break
-
     cv2.imshow('img',img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

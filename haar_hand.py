@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 import os
 
-os.chdir("/home/sathya-prakash/Desktop/gitrepo/harr_cascade")
+os.chdir("/home/sathya-prakash/Desktop/gitrepo/Haar_Cascade")
 
-hand_cascade = cv2.CascadeClassifier('haarcascade_palm.xml')
+hand_cascade = cv2.CascadeClassifier('haarcascade_palm.xml')# detects only left hand
 
 cap = cv2.VideoCapture(0)
 
