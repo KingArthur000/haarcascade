@@ -4,7 +4,7 @@ import os
 
 os.chdir("/home/sathya-prakash/Desktop/gitrepo/Haar_Cascade")
 
-hand_cascade = cv2.CascadeClassifier('haarcascade_palm.xml')# detects only left hand
+hand_cascade = cv2.CascadeClassifier('haarcascade_palm.xml')# detects both hands
 
 cap = cv2.VideoCapture(0)
 

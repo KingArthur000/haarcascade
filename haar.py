@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import os
 
-#os.chdir("/home/sathya-prakash/Desktop/gitrepo/Harr_Cascade")
+os.chdir("/home/sathya-prakash/Desktop/gitrepo/Haar_Cascade")
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 #face_cascade = cv2.CascadeClassifier('haarcascade_face_1.xml')
